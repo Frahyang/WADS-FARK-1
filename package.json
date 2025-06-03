@@ -4,8 +4,8 @@
   "description": "Server for the application",
   "main": "server/server.ts",
   "scripts": {
-    "start": "ts-node --project ./tsconfig.node.json server/server.ts",
-    "dev": "nodemon --exec \"ts-node --project ./tsconfig.node.json\" server/server.ts"
+    "start": "ts-node --project ./tsconfig.node.json ./server/server.ts",
+    "dev": "nodemon --exec \"ts-node --project ./tsconfig.node.json\" ./server/server.ts"
   },
   "dependencies": {
     "cors": "^2.8.5",
