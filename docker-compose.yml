@@ -1,0 +1,22 @@
+version: "3.8"
+
+services:
+  backend:
+    image: fadhillahhaidarrahyang/fark-server:latest
+    restart: always
+    environment:
+      MONGO_URI: ${MONGO_URI}
+      DATABASE_NAME: ${DATABASE_NAME}
+      EMAIL_USER: ${EMAIL_USER}
+      EMAIL_PASSWORD: ${EMAIL_PASSWORD}
+      REFRESH_TOKEN_SECRET: ${REFRESH_TOKEN_SECRET}
+    ports:
+      - "3020:3020"
+
+  frontend:
+    image: fadhillahhaidarrahyang/fark-server:latest
+    restart: always
+    depends_on:
+      - backend
+    ports:
+      - "3019:3019"
