@@ -1,5 +1,5 @@
 import express, { RequestHandler } from 'express'
-import { createTicket, deleteTicket, getTickets, getTicketsByOwnerID, updateStatus, sendTicketResponse } from '../controllers/TicketController';
+import { createTicket, deleteTicket, getTickets, getTicketsByOwnerID, updateStatus, sendTicketResponse } from '../controllers/TicketController.js';
 
 const router = express.Router();
 
