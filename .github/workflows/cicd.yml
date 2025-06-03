@@ -46,10 +46,10 @@ jobs:
           echo "export DOCKER_HOST=unix://$XDG_RUNTIME_DIR/docker.sock" >> $GITHUB_ENV
 
       - name: Pull Latest Backend Image
-        run: docker pull ${{ secrets.DOCKER_USERNAME }}/todolist-backend:latest
+        run: docker pull ${{ secrets.DOCKER_USERNAME }}/fark-server:latest
 
       - name: Pull Latest Frontend Image
-        run: docker pull ${{ secrets.DOCKER_USERNAME }}/todolist-frontend:latest
+        run: docker pull ${{ secrets.DOCKER_USERNAME }}/fark-client:latest
 
       - name: Stop and Remove Old Containers
         run: |
