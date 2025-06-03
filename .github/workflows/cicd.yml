@@ -1,4 +1,4 @@
-name: Todolist CI/CD
+name: Dentalign CI/CD
 
 on:
   push:

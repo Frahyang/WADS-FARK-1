@@ -11,7 +11,7 @@ services:
       EMAIL_PASSWORD: ${EMAIL_PASSWORD}
       REFRESH_TOKEN_SECRET: ${REFRESH_TOKEN_SECRET}
     ports:
-      - "3020:3020"
+      - "3020:5000"
 
   frontend:
     image: fadhillahhaidarrahyang/fark-client:latest
