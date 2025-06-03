@@ -8,7 +8,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "db": "cloudflared access tcp --hostname mongodb.csbihub.id --url localhost:27018",
     "server": "nodemon --exec \"node --loader ts-node/esm server.ts\"",
-    "start": "concurrently \"npm run db\" \"npm run server\" "
+    "start": "npm run server"
   },
   "repository": {
     "type": "git",
