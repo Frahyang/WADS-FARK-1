@@ -2,8 +2,8 @@ import express from 'express'
 import dotenv from 'dotenv'
 import cors from 'cors'
 
-import { connectToMongo } from './config/mongoClient'
-import usersRoute from './routes/userRoutes'
+import { connectToMongo } from './config/mongoClient.js'
+import usersRoute from './routes/UserRoutes'
 import ticketRoute from './routes/TicketRoutes'
 
 // <<<<<<< HEAD:server/server.js
