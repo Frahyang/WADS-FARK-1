@@ -29,9 +29,15 @@ const PORT = process.env.PORT || 3000;
 
 // Middleware
 app.use(cors({
-  origin: "*",
-  credentials: false
+  origin: 'https://e2425-wads-l4bcg3-client.csbihub.id',
+  credentials: true,
 }));
+
+app.options('*', cors({
+  origin: 'https://e2425-wads-l4bcg3-client.csbihub.id',
+  credentials: true,
+}));
+
 
 app.use(express.json());
 
