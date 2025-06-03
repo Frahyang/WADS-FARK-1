@@ -3,7 +3,7 @@ import dotenv from 'dotenv'
 import cors from 'cors'
 
 import { connectToMongo } from './config/mongoClient'
-import usersRoute from './routes/userRoutes'
+import usersRoute from './routes/UserRoutes'
 import ticketRoute from './routes/TicketRoutes'
 
 // <<<<<<< HEAD:server/server.js
