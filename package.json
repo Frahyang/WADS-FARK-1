@@ -4,8 +4,8 @@
   "description": "Server for the application",
   "main": "server/server.ts",
   "scripts": {
-    "start": "ts-node --transpile-only server/server.ts",
-    "dev": "nodemon --exec \"ts-node --transpile-only server/server.ts\""
+    "start": "node --loader ts-node/esm server/server.ts",
+    "dev": "nodemon --exec \"node --loader ts-node/esm server/server.ts\""
   },
   "dependencies": {
     "mongoose": "^8.15.1"
