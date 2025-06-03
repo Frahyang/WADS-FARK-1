@@ -14,7 +14,7 @@ services:
       - "3020:3020"
 
   frontend:
-    image: fadhillahhaidarrahyang/fark-server:latest
+    image: fadhillahhaidarrahyang/fark-client:latest
     restart: always
     depends_on:
       - backend
