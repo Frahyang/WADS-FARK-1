@@ -26,15 +26,11 @@ dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 3000;
 
+
 // Middleware
 app.use(cors({
-  origin: 'https://e2425-wads-l4bcg3-client.csbihub.id',
-  credentials: true
-}));
-
-app.options('*', cors({
-  origin: 'https://e2425-wads-l4bcg3-client.csbihub.id',
-  credentials: true
+  origin: "*",
+  credentials: false
 }));
 
 app.use(express.json());
