@@ -31,6 +31,12 @@ app.use(cors({
   origin: 'https://e2425-wads-l4bcg3-client.csbihub.id',
   credentials: true
 }));
+
+app.options('*', cors({
+  origin: 'https://e2425-wads-l4bcg3-client.csbihub.id',
+  credentials: true
+}));
+
 app.use(express.json());
 
 // Routes
