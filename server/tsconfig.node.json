@@ -1,18 +1,18 @@
 {
   "compilerOptions": {
-    "module": "CommonJS",
-    "moduleResolution": "Node",
-    "target": "ES2022",
-    "lib": ["ES2022"],
+    "composite": true,
+    "skipLibCheck": true,
+    "module": "ESNEXT",
+    "moduleResolution": "node",
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "target": "ESNEXT",
+    "lib": ["ESNEXT"],
     "esModuleInterop": true,
     "resolveJsonModule": true,
-    "strict": true,
-    "skipLibCheck": true,
-    "noEmit": true,
-    "allowSyntheticDefaultImports": true,
     "isolatedModules": true,
-    "composite": true
+    "noEmit": true
   },
-  "include": ["server.ts", "**/*.ts"],
+  "include": ["server.ts", "*/.ts"],
   "exclude": ["node_modules"]
 }
