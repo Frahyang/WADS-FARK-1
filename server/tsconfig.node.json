@@ -13,6 +13,6 @@
     "isolatedModules": true,
     "noEmit": true
   },
-  "include": ["server/server.ts", "server/**/*.ts"],
+  "include": ["server.ts", "**/*.ts"],
   "exclude": ["node_modules"]
-}
+} 
