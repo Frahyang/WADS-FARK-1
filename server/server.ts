@@ -27,15 +27,22 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 // Middleware
+const allowedOrigins = [
+  'http://localhost:5173',
+  'https://e2425-wads-l4bcg3-client.csbihub.id'
+];
+
 app.use(cors({
-  origin: 'https://e2425-wads-l4bcg3-client.csbihub.id/',
-  credentials: true,
+  origin: (origin, callback) => {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+  credentials: true
 }));
 
-app.options('*', cors({
-  origin: 'https://e2425-wads-l4bcg3-client.csbihub.id/',
-  credentials: true,
-}));
 app.use(express.json());
 
 // Routes
