@@ -1,4 +1,4 @@
-import express from 'express'
+import express, { Request, Response } from 'express'
 import dotenv from 'dotenv'
 import cors from 'cors'
 
@@ -24,12 +24,13 @@ import ticketRoute from './routes/TicketRoutes'
 dotenv.config();
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3020;
 
 // Middleware
 const allowedOrigins = [
   'http://localhost:5173',
-  'https://e2425-wads-l4bcg3-client.csbihub.id'
+  'https://e2425-wads-l4bcg3-client.csbihub.id',
+  'http://e2425-wads-l4bcg3-client.csbihub.id'
 ];
 
 app.use(cors({
@@ -62,7 +63,7 @@ app.use('/service/user', usersRoute);
 app.use('/service/tickets', ticketRoute);
 
 // Make sure server is running
-app.get('/', (_req, res) => {
+app.get('/', (_req: Request, res: Response) => {
   res.send('Server is working!');
 });
 
