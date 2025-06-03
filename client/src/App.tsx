@@ -13,14 +13,14 @@ import CustStaffDashboard from './pages/CustStaffDashboard'
 import OTPVerification from './pages/OTPVerification'
 import TicketAppScreen from './pages/TicketAppScreen';
 
-interface User {
-  id?: string;
-}
+// interface User { // This interface might still be used elsewhere, so I'll leave it for now.
+//   id?: string;
+// }
 
 function App() {
-  const user = JSON.parse(localStorage.getItem("user") || "{}") as User;
-  console.log(localStorage.getItem("user"));
-  const ownerId = user?.id || null;
+  // Remove user declaration and console log
+  // const user = JSON.parse(localStorage.getItem("user") || "{}") as User;
+  // console.log(localStorage.getItem("user"));
   return (
     <Routes>
       <Route path='/' element={<Home />} />
@@ -29,7 +29,7 @@ function App() {
       <Route path='/articles' element={<Articles />} />
       <Route path='/contact' element={<Contact />} />
       <Route path='/tickets' element={<CustStaffDashboard />} />
-      <Route path='/createticket' element={<TicketAppScreen ownerId={ownerId} />} />
+      <Route path='/createticket' element={<TicketAppScreen />} />
       <Route path='/admin/:status?' element={<AdminDashboard />} />
       <Route path='/admin/summary' element={<AdminDashboardSummary />} />
       <Route path='/signin' element={<SignIn/>}/>

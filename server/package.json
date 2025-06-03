@@ -3,12 +3,11 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "db": "cloudflared access tcp --hostname mongodb.csbihub.id --url localhost:27018",
-    "server": "nodemon --exec \"node --loader ts-node/esm server.ts\"",
-    "start": "npm run server"
+    "server": "nodemon -x \"ts-node --project ../tsconfig.node.json\" server.ts",
+    "start": "concurrently \"npm run db\" \"npm run server\" "
   },
   "repository": {
     "type": "git",
@@ -17,6 +16,7 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "type": "commonjs",
   "bugs": {
     "url": "https://github.com/Frahyang/WADS-FP-FARK.net/issues"
   },

@@ -4,20 +4,16 @@
   "description": "Server for the application",
   "main": "server/server.ts",
   "scripts": {
-    "start": "node --loader ts-node/esm server/server.ts",
-    "dev": "nodemon --exec \"node --loader ts-node/esm server/server.ts\""
+    "start": "node server/server.ts",
+    "dev": "nodemon server/server.ts"
   },
   "dependencies": {
     "mongoose": "^8.15.1"
   },
   "devDependencies": {
-    "@types/cors": "^2.8.18",
-    "@types/dotenv": "^8.2.3",
-    "@types/express": "^5.0.2",
     "@types/mongoose": "^5.11.97",
     "nodemon": "^3.1.10",
     "ts-node": "^10.9.2",
     "typescript": "^5.8.3"
-  },
-  "type": "module"
+  }
 }

@@ -1,8 +1,9 @@
-import { useState, FormEvent } from "react";
+import { useState, FormEvent, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "./TicketAppScreen.css";
 import { ticketService } from "../api/api";
 import type { CreateTicketPayload } from "../api/api";
+import logoPng from "../assets/text-logo-white.png";
 
 interface TicketFormData {
     title: string;
@@ -10,11 +11,11 @@ interface TicketFormData {
     description: string;
 }
 
-interface Props {
-    ownerId: string | null;
-}
+// interface Props {
+//     // ownerId: string | null; // Remove this prop
+// }
 
-const TicketAppScreen = ({ ownerId }: Props) => {
+const TicketAppScreen = ({ /* ownerId */ }) => { // Remove : Props from here
     const navigate = useNavigate();
     const [formData, setFormData] = useState<TicketFormData>({
         title: "",
@@ -23,6 +24,30 @@ const TicketAppScreen = ({ ownerId }: Props) => {
     });
     const [error, setError] = useState("");
     const [loading, setLoading] = useState(false);
+    const [ownerId, setOwnerId] = useState<string | null>(null);
+
+    useEffect(() => {
+        // Get the token from localStorage or sessionStorage
+        const token = localStorage.getItem('token') || sessionStorage.getItem('token');
+        if (token) {
+            try {
+                // Decode the JWT token to get user information
+                const base64Url = token.split('.')[1];
+                const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+                const jsonPayload = decodeURIComponent(atob(base64).split('').map(function(c) {
+                  return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+                }).join(''));
+
+                const { id } = JSON.parse(jsonPayload);
+                setOwnerId(id);
+            } catch (e) {
+                console.error("Failed to decode token:", e);
+                setOwnerId(null);
+            }
+        } else {
+            setOwnerId(null);
+        }
+    }, []); // Empty dependency array means this runs once on mount
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
         const { name, value } = e.target;
@@ -71,7 +96,7 @@ const TicketAppScreen = ({ ownerId }: Props) => {
         <>
             <div className="top_container">
                 <div className="name">
-                    <img className="logo" src="../src/assets/logo.png" alt="Logo" />
+                    <img className="logo" src={logoPng} alt="Logo" />
                     <h2>Dentalign</h2>
                 </div>
 
