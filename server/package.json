@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "db": "cloudflared access tcp --hostname mongodb.csbihub.id --url 10.25.143.17:27017",
-    "server": "nodemon -x \"ts-node --project /tsconfig.node.json\" server.ts",
+    "server": "nodemon -x \"ts-node --project ../tsconfig.node.json\" server.ts",
     "start": "npm run server"
   },
   "repository": {
