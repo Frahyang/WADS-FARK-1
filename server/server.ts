@@ -3,7 +3,7 @@ import dotenv from 'dotenv'
 import cors from 'cors'
 
 import { connectToMongo } from './config/mongoClient'
-import usersRoute from './routes/userRoutes'
+import usersRoute from './routes/UserRoutes'
 import ticketRoute from './routes/TicketRoutes'
 
 // <<<<<<< HEAD:server/server.js
@@ -28,8 +28,13 @@ const PORT = process.env.PORT || 3000;
 
 // Middleware
 app.use(cors({
-  origin: 'http://localhost:5173',
-  credentials: true
+  origin: 'https://e2425-wads-l4bcg3-client.csbihub.id/',
+  credentials: true,
+}));
+
+app.options('*', cors({
+  origin: 'https://e2425-wads-l4bcg3-client.csbihub.id/',
+  credentials: true,
 }));
 app.use(express.json());
 
