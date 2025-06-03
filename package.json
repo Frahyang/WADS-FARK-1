@@ -1,0 +1,17 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "Server for the application",
+  "main": "server/index.js",
+  "scripts": {
+    "start": "node server/index.js",
+    "dev": "nodemon server/index.js"
+  },
+  "dependencies": {
+    "mongoose": "^8.15.1"
+  },
+  "devDependencies": {
+    "@types/mongoose": "^5.11.97",
+    "nodemon": "^3.0.0"
+  }
+}
