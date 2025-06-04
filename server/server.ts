@@ -14,7 +14,6 @@ const app = express();
 const PORT = process.env.PORT || 3020;
 
 const allowedOrigins = [
-  'http://localhost:5173',
   'https://e2425-wads-l4bcg3-client.csbihub.id',
 ];
 
@@ -52,9 +51,9 @@ app.use((req, res, next) => {
 app.use('/service/user', usersRoute);
 app.use('/service/tickets', ticketRoute);
 
-app.get('/', (_req: Request, res: Response) => {
-  res.send('Server is working!');
-});
+// app.get('/', (_req: Request, res: Response) => {
+//   res.send('Server is working!');
+// });
 
 // Add a catch-all route for undefined routes
 // app.use('/*', (_req: Request, res: Response) => {
@@ -62,10 +61,10 @@ app.get('/', (_req: Request, res: Response) => {
 // });
 
 
-// Handle undefined routes
-app.all('/{*any}', (req, res, next) => {
-  next("Server not found")
-});
+// // Handle undefined routes
+// app.all('/{*any}', (req, res, next) => {
+//   next("Server not found")
+// });
 
 // ✅ Move connectToMongo BEFORE starting server
 async function startServer() {
