@@ -305,7 +305,7 @@ const CustomerDashboard = () => {
                 className="hidden lg:flex items-center space-x-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
               >
                 <Plus className="w-4 h-4" />
-                <span>Creat Ticket</span>
+                <span>Create Ticket</span>
               </button>
             </div>
           </div>
