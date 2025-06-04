@@ -1,9 +1,9 @@
 import { useNavigate } from "react-router-dom"
-
+import logo from '../assets/text-logo.png'
 const HeaderBar = () => {
     const nav = useNavigate()
 
-    const logo = "src/assets/text-logo-white.png"
+
     const styles = {
         container: 'bg-gradient-to-b from-sky-600 to-sky-500  text-white flex flex-col xl:flex-row items-center justify-center xl:justify-between pt-3 sm:pb-3 xl:px-10',
         nav: 'hidden sm:block flex flex-row items-center xl:gap-5',

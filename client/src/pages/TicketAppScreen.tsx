@@ -100,7 +100,7 @@ const TicketAppScreen = ({ /* ownerId */ }) => { // Remove : Props from here
     };
 
     return (
-        <div>
+        <div className="ticket-app-screen">
             <div className="top_container">
                 <div className="name">
                     <img className="logo" src={logoPng} alt="Logo" />

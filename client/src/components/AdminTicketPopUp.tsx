@@ -241,7 +241,7 @@ const AdminTicketPopUp = ({ isOpen, onClose, ticket, onUpdate, onDelete }: Props
                       type="text"
                       value={editedAssignee}
                       onChange={(e) => setEditedAssignee(e.target.value)}
-                      className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50 text-gray-900 font-medium text-sm"
+                      className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50 text-gray-900 font-medium text-sm bg-white"
                     />
                   ) : (
                     <p className="text-gray-900 font-medium">{ticket.assignee}</p>
