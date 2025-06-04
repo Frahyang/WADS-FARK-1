@@ -9,7 +9,7 @@ const options = {
         },
         servers: [
         {
-            url: 'http://localhost:3000',
+            url: 'http://e2425-wads-l4bcg3-server.csbihub.id',
         },
         ],
     },
