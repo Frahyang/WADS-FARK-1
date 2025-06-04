@@ -59,7 +59,9 @@ app._router.stack.forEach((middleware: any) => {
   } else if (middleware.name === 'router') {
     middleware.handle.stack.forEach((handler: any) => {
       if (handler.route) {
-        console.log(`🛣️  Route: ${Object.keys(handler.route.methods).join(', ').toUpperCase()} ${middleware.regexp} ${handler.route.path}`);
+        const path = handler.route.path;
+        const methods = Object.keys(handler.route.methods).join(', ').toUpperCase();
+        console.log(`🛣️  Route: ${methods} ${path}`);
       }
     });
   }
