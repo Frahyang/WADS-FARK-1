@@ -47,6 +47,11 @@ app.use(express.json());
 app.use('/service/user', usersRoute);
 app.use('/service/tickets', ticketRoute);
 
+// Add a catch-all route for undefined routes
+app.use('*', (_req: Request, res: Response) => {
+  res.status(404).send('Route not found');
+});
+
 app.get('/', (_req: Request, res: Response) => {
   res.send('Server is working!');
 });
