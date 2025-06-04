@@ -43,6 +43,12 @@ app.options('*', cors({
 
 app.use(express.json());
 
+// Add request logging
+app.use((req, res, next) => {
+  console.log(`${req.method} ${req.path}`);
+  next();
+});
+
 // Routes
 app.use('/service/user', usersRoute);
 app.use('/service/tickets', ticketRoute);
