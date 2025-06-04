@@ -7,9 +7,16 @@ import logoPng from "../assets/text-logo-white.png";
 
 interface TicketFormData {
     title: string;
-    type: "IT System" | "Management";
+    type: 
+      | "IT System"
+      | "Management"
+      | "Inquiries about dentalign"
+      | "Technical issues of website"
+      | "Billing/payment of appointments"
+      | "Filing complaint of service";
     description: string;
 }
+
 
 // interface Props {
 //     // ownerId: string | null; // Remove this prop
@@ -93,7 +100,7 @@ const TicketAppScreen = ({ /* ownerId */ }) => { // Remove : Props from here
     };
 
     return (
-        <>
+        <div>
             <div className="top_container">
                 <div className="name">
                     <img className="logo" src={logoPng} alt="Logo" />
@@ -120,15 +127,20 @@ const TicketAppScreen = ({ /* ownerId */ }) => { // Remove : Props from here
                         />
 
                         <label htmlFor="type">Type</label>
-                        <select 
-                            name="type"
-                            value={formData.type}
-                            onChange={handleChange}
-                            required
+                        <select
+                        name="type"
+                        value={formData.type}
+                        onChange={handleChange}
+                        required
                         >
-                            <option value="IT System">IT System</option>
-                            <option value="Management">Management</option>
+                        <option value="IT System">IT System</option>
+                        <option value="Management">Management</option>
+                        <option value="Inquiries about dentalign">Inquiries about dentalign</option>
+                        <option value="Technical issues of website">Technical issues of website</option>
+                        <option value="Billing/payment of appointments">Billing/payment of appointments</option>
+                        <option value="Filing complaint of service">Filing complaint of service</option>
                         </select>
+
 
                         <label htmlFor="description">Description</label>
                         <textarea 
@@ -160,7 +172,7 @@ const TicketAppScreen = ({ /* ownerId */ }) => { // Remove : Props from here
                     </form>
                 </div>
             </div>
-        </>
+        </div>
     );
 };
 

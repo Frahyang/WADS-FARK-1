@@ -5,9 +5,6 @@ import Chatbot from '../components/Chatbot'
 
 import { useNavigate } from 'react-router-dom'
 import CertificationObject from '../components/CertificationObject'
-import React from 'react'
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faSquareFacebook, faSquareInstagram, faSquareXTwitter, faSquareYoutube } from "@fortawesome/free-brands-svg-icons"
 import melindaJpg from "../assets/melinda.jpg"
 import homeJumbotron from "../assets/home-jumbotron.png"
 
@@ -30,21 +27,21 @@ function Home() {
 
     const nav = useNavigate()
     const styles = {
-        jumbotron: `bg-no-repeat bg-cover bg-center text-white min-h-150 flex items-center`,
+        jumbotron: `bg-no-repeat bg-cover bg-center text-white min-h-[600px] flex items-center`,
         jumbo_content: "bg-[#00000075] flex flex-col items-start flex-grow gap-10 p-10",
         jumbo_desc: "md:w-2/3 text-center md:text-left",
         jumbo_header: "text-3xl sm:text-5xl border-b-3 pb-5 mb-5 text-shadow-lg/30",
         jumbo_bookBtn: "transition-colors bg-green-600 hover:bg-green-500 cursor-pointer w-fit md:text-left p-5 mx-auto md:mx-0 text-2xl font-bold",
 
-        section: "px-10 py-15 ",
+        section: "px-10 py-[60px] ",
 
-        about_container: "max-w-300 mx-auto flex xl:flex-row flex-col items-center justify-center gap-10",
+        about_container: "max-w-[1200px] mx-auto flex xl:flex-row flex-col items-center justify-center gap-10",
         about_img: "xl:w-3/4",
         about_title: "text-4xl border-b-2 pb-3",
         about_desc: "my-4 text-justify",
         about_readmore: "transition-colors cursor-pointer bg-cyan-500 hover:bg-cyan-600 text-white font-bold p-2 md:w-1/2",
 
-        certif_container: "max-w-300 mx-auto",
+        certif_container: "max-w-[1200px] mx-auto",
     }
     return (
         <>
@@ -77,7 +74,7 @@ function Home() {
                         </div>
                     </div>
                 </section>
-                <section className={styles.section + "bg-linear-to-b from-sky-600 to-sky-500"}>
+                <section className={styles.section + "bg-gradient-to-b from-sky-600 to-sky-500"}>
                     <SlidingTestimonies />
                 </section>
                 <section className={styles.section + "bg-blue-100"}>

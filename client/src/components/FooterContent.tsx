@@ -4,7 +4,7 @@ const FooterContent = () => {
 
         title: "text-xl sm:text-3xl text-[#ffffffbb] border-b-2 pb-2 mb-3",
 
-        content: "max-w-300 mx-auto flex flex-row items-start justify-between text-[#ffffff99] mx-10 px-10 py-5",
+        content: "max-w-[1200px] mx-auto flex flex-row items-start justify-between text-[#ffffff99] mx-10 px-10 py-5",
         contacts: "my-3",
         copyright: "bg-sky-900 text-[#ffffff50] text-center font-bold py-3",
         gmap_iframe: "rounded-xl w-full mt-5"

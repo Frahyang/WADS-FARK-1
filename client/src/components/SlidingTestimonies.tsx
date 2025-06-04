@@ -34,9 +34,9 @@ const SlidingTestimonies = () => {
     ]
 
     const styles = {
-        container: "max-w-300 mx-auto text-center text-white",
-        title: "text-3xl sm:text-5xl pb-3 border-b-3 font-bold",
-        quote: "bg-[#00000050] flex flex-col items-center justify-center rounded-xl text-lg xl:mx-10 px-10 py-7 my-5 h-100",
+        container: "max-w-[1200px] mx-auto text-center text-white",
+        title: "text-3xl sm:text-5xl pb-3 border-b-[3px] font-bold",
+        quote: "bg-[#00000050] flex flex-col items-center justify-center rounded-xl text-lg xl:mx-10 px-10 py-7 my-5 h-[400px]",
         node_container: "mt-4 flex space-x-3 w-fit mx-auto",
         nodes: `w-4 h-4 rounded-full transition-colors duration-500 `
     }

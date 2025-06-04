@@ -5,7 +5,7 @@ const HeaderBar = () => {
 
     const logo = "src/assets/text-logo-white.png"
     const styles = {
-        container: 'bg-gradient-to-b from-sky-600 to-sky-500 border-b-2 text-white flex flex-col xl:flex-row items-center justify-center xl:justify-between pt-3 sm:pb-3 xl:px-10',
+        container: 'bg-gradient-to-b from-sky-600 to-sky-500  text-white flex flex-col xl:flex-row items-center justify-center xl:justify-between pt-3 sm:pb-3 xl:px-10',
         nav: 'hidden sm:block flex flex-row items-center xl:gap-5',
         links: 'flex flex-row text-2xl',
         navLink: 'transition-all cursor-pointer border border-[#ffffff77] border-l border-r first:border-l-0 last:border-r-0 text-shadow-lg hover:text-blue-200 flex items-center py-1 px-4',

@@ -139,7 +139,7 @@ function AdminDashboard() {
                   className="absolute left-3 text-neutral-500 text-sm"
                 />
                 <input 
-                  className="w-full h-10 pl-10 pr-3 outline-none border border-neutral-300 rounded-lg focus:border-blue-500 text-sm" 
+                  className="w-full h-10 pl-10 pr-3 outline-none border border-neutral-300 rounded-lg focus:border-blue-500 text-sm bg-white" 
                   type="text" 
                   placeholder="Search tickets.." 
                   value={searchQuery}

@@ -113,7 +113,7 @@ const SignIn: React.FC = () => {
             </div>
           )}
 
-          <form onSubmit={handleSubmit} className="space-y-6 text-sm sm:text-base md:text-lg">
+          <form onSubmit={handleSubmit} className="space-y-6 text-sm sm:text-base md:text-lg w-full">
             <div>
               <label className="block text-base sm:text-lg md:text-xl font-semibold text-gray-700">Email</label>
               <input
@@ -122,7 +122,7 @@ const SignIn: React.FC = () => {
                 value={formData.email}
                 onChange={handleChange}
                 placeholder="Enter your email"
-                className="w-full px-3 py-2 sm:px-4 sm:py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-violet-500"
+                className="w-full px-3 py-2 sm:px-4 sm:py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-violet-500 bg-white"
                 required
               />
             </div>
@@ -135,25 +135,9 @@ const SignIn: React.FC = () => {
                 value={formData.password}
                 onChange={handleChange}
                 placeholder="Enter your password"
-                className="w-full px-3 py-2 sm:px-4 sm:py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-violet-500"
+                className="w-full px-3 py-2 sm:px-4 sm:py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-violet-500 bg-white"
                 required
               />
-            </div>
-
-            <div className="flex items-center justify-between">
-              <label className="flex items-center text-sm sm:text-base">
-                <input
-                  type="checkbox"
-                  name="rememberMe"
-                  checked={formData.rememberMe}
-                  onChange={handleChange}
-                  className="mr-2 w-4 h-4 sm:w-5 sm:h-5 cursor-pointer"
-                />
-                Remember me
-              </label>
-              <a href="#" className="text-sm sm:text-base text-violet-600 hover:underline cursor-pointer">
-                Forgot password?
-              </a>
             </div>
 
             <button

@@ -95,7 +95,7 @@ const SignUp: React.FC = () => {
 
           <form
             onSubmit={handleSubmit}
-            className="space-y-6 text-sm sm:text-base md:text-lg"
+            className="space-y-6 text-sm sm:text-base md:text-lg w-full"
           >
             <div>
               <label className="block text-base sm:text-lg md:text-xl font-semibold text-gray-700">
@@ -107,7 +107,7 @@ const SignUp: React.FC = () => {
                 value={formData.userName}
                 onChange={handleChange}
                 placeholder="Enter your full name"
-                className="w-full px-3 py-2 sm:px-4 sm:py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-violet-500"
+                className="w-full px-3 py-2 sm:px-4 sm:py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-violet-500 bg-white"
                 required
               />
             </div>
@@ -122,7 +122,7 @@ const SignUp: React.FC = () => {
                 value={formData.email}
                 onChange={handleChange}
                 placeholder="Enter your email"
-                className="w-full px-3 py-2 sm:px-4 sm:py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-violet-500"
+                className="w-full px-3 py-2 sm:px-4 sm:py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-violet-500 bg-white" 
                 required
               />
             </div>
@@ -137,7 +137,7 @@ const SignUp: React.FC = () => {
                 value={formData.password}
                 onChange={handleChange}
                 placeholder="Create a password"
-                className="w-full px-3 py-2 sm:px-4 sm:py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-violet-500"
+                className="w-full px-3 py-2 sm:px-4 sm:py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-violet-500 bg-white"
                 required
                 minLength={6}
               />
@@ -153,7 +153,7 @@ const SignUp: React.FC = () => {
                 value={formData.confirmPassword}
                 onChange={handleChange}
                 placeholder="Confirm your password"
-                className="w-full px-3 py-2 sm:px-4 sm:py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-violet-500"
+                className="w-full px-3 py-2 sm:px-4 sm:py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-violet-500 bg-white"
                 required
                 minLength={6}
               />

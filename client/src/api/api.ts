@@ -8,14 +8,22 @@ export interface ApiErrorResponse {
   email?: string;
 }
 
+export type TicketType =
+  | "IT System"
+  | "Management"
+  | "Inquiries about dentalign"
+  | "Technical issues of website"
+  | "Billing/payment of appointments"
+  | "Filing complaint of service";
+
 export interface CreateTicketPayload {
   title: string;
   description: string;
   assignee: string;
-  type: "IT System" | "Management"; // Use specific types based on backend
-  date_created: string; // Send date as ISO string
-  priority: "High" | "Medium" | "Low"; // Use specific types
-  status: "In Progress" | "Completed" | "Unseen"; // Use specific types
+  type: TicketType;
+  date_created: string;
+  priority: "High" | "Medium" | "Low";
+  status: "In Progress" | "Completed" | "Unseen";
 }
 
 export interface TicketUpdatePayload {

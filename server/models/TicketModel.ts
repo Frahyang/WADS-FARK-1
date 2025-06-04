@@ -1,6 +1,13 @@
 import mongoose from 'mongoose'
 
-export type IssueType = "IT System" | "Management"
+export type IssueType =
+  | "IT System"
+  | "Management"
+  | "Inquiries about dentalign"
+  | "Technical issues of website"
+  | "Billing/payment of appointments"
+  | "Filing complaint of service";
+
 export type PriorityType = "High" | "Medium" | "Low";
 export type StatusType = "In Progress" | "Completed" | "Unseen"
 
