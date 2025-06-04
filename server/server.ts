@@ -47,8 +47,8 @@ app.use(express.json());
 //   next();
 // });
 
-// // Routes
-// app.use('/service/user', usersRoute);
+// Routes
+app.use('/service/user', usersRoute);
 // app.use('/service/tickets', ticketRoute);
 
 // // app.get('/', (_req: Request, res: Response) => {
