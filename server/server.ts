@@ -16,7 +16,6 @@ const PORT = process.env.PORT || 3020;
 const allowedOrigins = [
   'http://localhost:5173',
   'https://e2425-wads-l4bcg3-client.csbihub.id',
-  'http://e2425-wads-l4bcg3-client.csbihub.id'
 ];
 
 app.use(cors({
@@ -30,7 +29,7 @@ app.use(cors({
   credentials: true
 }));
 
-app.options('*', cors({
+app.options('/*', cors({
   origin: (origin, callback) => {
     if (!origin || allowedOrigins.includes(origin)) {
       callback(null, true);
@@ -58,8 +57,14 @@ app.get('/', (_req: Request, res: Response) => {
 });
 
 // Add a catch-all route for undefined routes
-app.use('/*', (_req: Request, res: Response) => {
-  res.status(404).send('Route not found');
+// app.use('/*', (_req: Request, res: Response) => {
+//   res.status(404).send('Route not found');
+// });
+
+
+// Handle undefined routes
+app.all('/{*any}', (req, res, next) => {
+  next("Server not found")
 });
 
 // ✅ Move connectToMongo BEFORE starting server
