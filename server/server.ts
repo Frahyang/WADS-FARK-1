@@ -39,7 +39,7 @@ const allowedOrigins = [
 //   credentials: true
 // }));
 
-// app.use(express.json());
+app.use(express.json());
 
 // // Add request logging
 // app.use((req, res, next) => {
@@ -49,7 +49,7 @@ const allowedOrigins = [
 
 // Routes
 app.use('/service/user', usersRoute);
-// app.use('/service/tickets', ticketRoute);
+app.use('/service/tickets', ticketRoute);
 
 // // app.get('/', (_req: Request, res: Response) => {
 // //   res.send('Server is working!');
@@ -59,24 +59,24 @@ app.use('/service/user', usersRoute);
 // // app.use('/*', (_req: Request, res: Response) => {
 // //   res.status(404).send('Route not found');
 // // });
-
-
+// 
+// 
 // // // Handle undefined routes
 // // app.all('/{*any}', (req, res, next) => {
 // //   next("Server not found")
 // // });
 
-// // ✅ Move connectToMongo BEFORE starting server
-// async function startServer() {
-//   try {
-//     await connectToMongo();
-//     app.listen(PORT, () => {
-//       console.log(`✅ Server running at http://localhost:${PORT}`);
-//     });
-//   } catch (err) {
-//     console.error('❌ Failed to connect to MongoDB:', err);
-//     process.exit(1); // Stop the app if DB connection fails
-//   }
-// }
+// ✅ Move connectToMongo BEFORE starting server
+async function startServer() {
+  try {
+    await connectToMongo();
+    app.listen(PORT, () => {
+      console.log(`✅ Server running at http://localhost:${PORT}`);
+    });
+  } catch (err) {
+    console.error('❌ Failed to connect to MongoDB:', err);
+    process.exit(1); // Stop the app if DB connection fails
+  }
+}
 
-// startServer();
+startServer();
