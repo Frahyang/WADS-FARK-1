@@ -13,31 +13,31 @@ dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 3020;
 
-// const allowedOrigins = [
-//   'https://e2425-wads-l4bcg3-client.csbihub.id',
-// ];
+const allowedOrigins = [
+  'https://e2425-wads-l4bcg3-client.csbihub.id',
+];
 
-// app.use(cors({
-//   origin: (origin, callback) => {
-//     if (!origin || allowedOrigins.includes(origin)) {
-//       callback(null, true);
-//     } else {
-//       callback(new Error('Not allowed by CORS'));
-//     }
-//   },
-//   credentials: true
-// }));
+app.use(cors({
+  origin: (origin, callback) => {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+  credentials: true
+}));
 
-// app.options('/*', cors({
-//   origin: (origin, callback) => {
-//     if (!origin || allowedOrigins.includes(origin)) {
-//       callback(null, true);
-//     } else {
-//       callback(new Error('Not allowed by CORS'));
-//     }
-//   },
-//   credentials: true
-// }));
+app.options('/*', cors({
+  origin: (origin, callback) => {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+  credentials: true
+}));
 
 app.use(express.json());
 
@@ -48,7 +48,7 @@ app.use(express.json());
 // });
 
 // Routes
-app.use('/service/user', usersRoute);
+// app.use('/service/user', usersRoute);
 app.use('/service/tickets', ticketRoute);
 
 // // app.get('/', (_req: Request, res: Response) => {
