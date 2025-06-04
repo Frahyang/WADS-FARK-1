@@ -48,7 +48,7 @@ app.use(express.json());
 // });
 
 // Routes
-// app.use('/service/user', usersRoute);
+app.use('/service/user', usersRoute);
 app.use('/service/tickets', ticketRoute);
 
 // // app.get('/', (_req: Request, res: Response) => {
