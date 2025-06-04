@@ -8,17 +8,17 @@ import jwt from 'jsonwebtoken'
 import { User } from '../models/UserModel'
 import { userSendMail } from './EmailAuthController';
 
-// Schedule cleanup task to run every hour
-setInterval(async () => {
-  try {
-    const result = await cleanupExpiredAccounts();
-    if (result) {
-      console.log(`Cleaned up ${result.deletedCount} expired unverified accounts`);
-    }
-  } catch (error) {
-    console.error('Error in scheduled cleanup:', error);
-  }
-}, 60 * 60 * 1000); // Run every hour
+// // Schedule cleanup task to run every hour
+// setInterval(async () => {
+//   try {
+//     const result = await cleanupExpiredAccounts();
+//     if (result) {
+//       console.log(`Cleaned up ${result.deletedCount} expired unverified accounts`);
+//     }
+//   } catch (error) {
+//     console.error('Error in scheduled cleanup:', error);
+//   }
+// }, 60 * 60 * 1000); // Run every hour
 
 // Helpers
 function isMatch(password:any, confirmPassword:any) {
