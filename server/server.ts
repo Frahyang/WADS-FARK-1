@@ -39,6 +39,14 @@ const allowedOrigins = [
 //   credentials: true
 // }));
 
+const corsOptions = {
+  origin: 'https://e2425-wads-l4bcg3-client.csbihub.id',
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS', 'PATCH'],
+  credentials: true,
+}
+app.use(cors(corsOptions))
+app.options('*', cors(corsOptions))
+
 app.use(express.json());
 
 // // Add request logging
