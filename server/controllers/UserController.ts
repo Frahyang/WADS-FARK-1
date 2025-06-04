@@ -229,14 +229,14 @@ const userInfor = async (req:any, res:any) => {
 // Update user (by user)
 const updateUser = async (req:any, res:any) => {
   try {
-    const userId = req.user.id;
+    const { id } = req.params;
     const updates = req.body;
 
     if (updates.password) {
       updates.password = await bcrypt.hash(updates.password, 10);
     }
 
-    const updatedUser = await User.findByIdAndUpdate(userId, updates, { new: true });
+    const updatedUser = await User.findByIdAndUpdate(id, updates, { new: true });
     if (!updatedUser) return res.status(404).json({ message: 'User not found.' });
 
     res.json({ message: 'User updated successfully.', user: updatedUser });
@@ -278,8 +278,8 @@ const addUser = async (req:any, res:any) => {
 // Delete user
 const deleteUser = async (req:any, res:any) => {
   try {
-    const userId = req.user.id;
-    const deletedUser = await User.findByIdAndDelete(userId);
+    const { id } = req.params;
+    const deletedUser = await User.findByIdAndDelete(id);
 
     if (!deletedUser) return res.status(404).json({ message: 'User not found.' });
 
