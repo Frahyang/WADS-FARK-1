@@ -3,6 +3,8 @@ console.log('🚀 server.ts started');
 import express, { Request, Response } from 'express';
 import dotenv from 'dotenv';
 import cors from 'cors';
+import swaggerUi from 'swagger-ui-express'
+import yaml from 'yamljs'
 
 import { connectToMongo } from './config/mongoClient';
 import usersRoute from './routes/UserRoutes';
@@ -58,6 +60,7 @@ app.use(express.json());
 // Routes
 app.use('/service/user', usersRoute);
 app.use('/service/tickets', ticketRoute);
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(yaml.load('./utils/swagger.yaml')))
 
 // // app.get('/', (_req: Request, res: Response) => {
 // //   res.send('Server is working!');

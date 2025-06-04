@@ -1,0 +1,290 @@
+openapi: 3.0.0
+info:
+  title: Dentalign Ticketing API
+  version: 1.0.0
+paths:
+  /create_ticket/{owner_id}:
+    post:
+      summary: Create a ticket
+      parameters:
+        - in: path
+          name: owner_id
+          required: true
+          schema:
+            type: string
+          description: ID of the ticket owner
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                subject:
+                  type: string
+                message:
+                  type: string
+      responses:
+        '201':
+          description: Ticket created successfully
+        '400':
+          description: Credentials not fulfilled
+        '500':
+          description: Internal server error
+
+  /get_tickets_all:
+    get:
+      summary: Get all tickets
+      responses:
+        '200':
+          description: List of all tickets
+        '500':
+          description: Internal server error
+
+  /get_tickets_byOwnerId/{owner_id}:
+    get:
+      summary: Get tickets by owner ID
+      parameters:
+        - in: path
+          name: owner_id
+          required: true
+          schema:
+            type: string
+          description: Owner's user ID
+      responses:
+        '200':
+          description: List of tickets for the given owner
+        '400':
+          description: Credentials not fulfilled
+        '500':
+          description: Internal server error
+
+  /update_status/{ticket_id}:
+    patch:
+      summary: Update ticket status
+      parameters:
+        - in: path
+          name: ticket_id
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                status:
+                  type: string
+                  enum: [open, closed, pending]
+      responses:
+        '200':
+          description: Status updated
+        '400':
+          description: Credentials not fulfilled
+        '404':
+          description: Ticket not found
+        '500':
+          description: Internal server error
+
+  /delete_ticket/{ticket_id}:
+    delete:
+      summary: Delete a ticket
+      parameters:
+        - in: path
+          name: ticket_id
+          required: true
+          schema:
+            type: string
+      responses:
+        '204':
+          description: Ticket deleted
+        '400':
+          description: Credentials not fulfilled
+        '404':
+          description: Ticket not found
+        '500':
+          description: Internal server error
+
+  /send_response/{ticket_id}:
+    post:
+      summary: Send a response to a ticket
+      parameters:
+        - in: path
+          name: ticket_id
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                response:
+                  type: string
+      responses:
+        '200':
+          description: Response sent
+        '400':
+          description: Credentials not fulfilled
+        '404':
+          description: Ticket/Owner not found
+        '500':
+          description: Internal server error
+
+  /signup:
+    post:
+      summary: Register a new user
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                password:
+                  type: string
+      responses:
+        '201':
+          description: User signed up
+        '400':
+          description: Credentials not fulfilled
+        '500':
+          description: Internal server error
+
+  /signin:
+    post:
+      summary: Sign in an existing user
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                password:
+                  type: string
+      responses:
+        '200':
+          description: User signed in
+        '400':
+          description: Credentials not fulfilled
+        '500':
+          description: Internal server error
+
+  /verify-otp:
+    post:
+      summary: Verify OTP
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                otp:
+                  type: string
+      responses:
+        '200':
+          description: OTP verified
+        '400':
+          description: Invalid response or Account deprecated or found
+        '500':
+          description: Internal server error
+
+  /resend-otp:
+    post:
+      summary: Resend OTP
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+      responses:
+        '200':
+          description: OTP resent
+        '400':
+          description: Account deprecated or verified
+        '500':
+          description: Internal server error
+
+  /add:
+    post:
+      summary: Add a new user (admin use)
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                email:
+                  type: string
+      responses:
+        '201':
+          description: User added
+        '400':
+          description: Email already exists
+        '500':
+          description: Internal server error
+
+  /edit/{id}:
+    put:
+      summary: Update a user
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                email:
+                  type: string
+      responses:
+        '200':
+          description: User updated
+        '404':
+          description: User not found
+        '500':
+          description: Internal server error
+
+  /delete/{id}:
+    delete:
+      summary: Delete a user
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+      responses:
+        '204':
+          description: User deleted
+        '404':
+          description: User not found
+        '500':
+          description: Internal server error
+
