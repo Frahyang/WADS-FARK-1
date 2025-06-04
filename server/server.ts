@@ -17,35 +17,35 @@ const allowedOrigins = [
   'https://e2425-wads-l4bcg3-client.csbihub.id',
 ];
 
-// app.use(cors({
-//   origin: (origin, callback) => {
-//     if (!origin || allowedOrigins.includes(origin)) {
-//       callback(null, true);
-//     } else {
-//       callback(new Error('Not allowed by CORS'));
-//     }
-//   },
-//   credentials: true
-// }));
+app.use(cors({
+  origin: (origin, callback) => {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+  credentials: true
+}));
 
-// app.options('/*', cors({
-//   origin: (origin, callback) => {
-//     if (!origin || allowedOrigins.includes(origin)) {
-//       callback(null, true);
-//     } else {
-//       callback(new Error('Not allowed by CORS'));
-//     }
-//   },
-//   credentials: true
-// }));
+app.options('*', cors({
+  origin: (origin, callback) => {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+  credentials: true
+}));
 
-const corsOptions = {
-  origin: 'https://e2425-wads-l4bcg3-client.csbihub.id',
-  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS', 'PATCH'],
-  credentials: true,
-}
-app.use(cors(corsOptions))
-app.options('*', cors(corsOptions))
+// const corsOptions = {
+//   origin: 'https://e2425-wads-l4bcg3-client.csbihub.id',
+//   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS', 'PATCH'],
+//   credentials: true,
+// }
+// app.use(cors(corsOptions))
+// app.options('*', cors(corsOptions))
 
 app.use(express.json());
 
