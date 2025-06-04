@@ -48,7 +48,14 @@ const TicketSchema = new mongoose.Schema<ITicket>({
     },
     type: {
         type: String,
-        enum: ["IT System", "Management"],
+        enum: [
+            "IT System",
+            "Management",
+            "Inquiries about dentalign",
+            "Technical issues of website",
+            "Billing/payment of appointments",
+            "Filing complaint of service"
+        ],
         required: true
     },
     date_created: {
