@@ -43,29 +43,9 @@ app.options('*', cors({
 
 app.use(express.json());
 
-// Add route logging
-console.log('🔍 Setting up routes...');
-
 // Routes
-console.log('📝 Mounting user routes at /service/user');
 app.use('/service/user', usersRoute);
-console.log('📝 Mounting ticket routes at /service/tickets');
 app.use('/service/tickets', ticketRoute);
-
-// Log all registered routes
-app._router.stack.forEach((middleware: any) => {
-  if (middleware.route) {
-    console.log(`🛣️  Route: ${Object.keys(middleware.route.methods).join(', ').toUpperCase()} ${middleware.route.path}`);
-  } else if (middleware.name === 'router') {
-    middleware.handle.stack.forEach((handler: any) => {
-      if (handler.route) {
-        const path = handler.route.path;
-        const methods = Object.keys(handler.route.methods).join(', ').toUpperCase();
-        console.log(`🛣️  Route: ${methods} ${path}`);
-      }
-    });
-  }
-});
 
 app.get('/', (_req: Request, res: Response) => {
   res.send('Server is working!');
