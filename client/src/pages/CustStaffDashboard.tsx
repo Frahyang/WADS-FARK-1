@@ -48,6 +48,7 @@ const CustomerDashboard = () => {
       const token = localStorage.getItem('token') || sessionStorage.getItem('token');
       if (!token) {
         console.error('No authentication token found');
+        navigate("/SignIn")
         return;
       }
 
@@ -84,6 +85,7 @@ const CustomerDashboard = () => {
   useEffect(() => {
     fetchTickets();
   }, [fetchTickets]); // Effect now depends on fetchTickets
+
 
   const filteredTickets = useMemo(() => {
     let filtered = tickets;

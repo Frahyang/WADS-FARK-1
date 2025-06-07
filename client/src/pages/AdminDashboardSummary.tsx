@@ -6,6 +6,8 @@ import DashboardHeader from '../components/DashboardHeader';
 import DashboardNav from '../components/DashboardNav';
 import { ticketService } from '../api/api';
 import { StatusType, ITicket } from '../types/ticket';
+import { jwtDecode } from 'jwt-decode';
+
 
 interface CustomTooltipProps {
   active?: boolean;
@@ -37,6 +39,24 @@ const AdminDashboardSummary = () => {
   const [tickets, setTickets] = useState<ITicket[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+
+  const token = localStorage.getItem('token') || sessionStorage.getItem('token');
+  useEffect(() => {
+  if (token) {
+    try {
+      const decoded: { role?: string; [key: string]: any } = jwtDecode(token);
+      const userRole = decoded.role;
+      if (userRole !== "Admin") {
+        navigate("/SignIn");
+      }
+    } catch (e) {
+      console.error('Invalid token:', e);
+      navigate("/SignIn");
+    }
+  } else {
+    navigate("/SignIn");
+  }
+}, [navigate, token]);
 
   useEffect(() => {
     const fetchTickets = async () => {

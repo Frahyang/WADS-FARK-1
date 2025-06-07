@@ -7,6 +7,7 @@ import type { ITicket, StatusType, PriorityType } from '../../../server/models/T
 import { useNavigate, useParams } from 'react-router-dom';
 import { ticketService } from '../api/api';
 import AdminTable from '../components/AdminTable';
+import { jwtDecode } from 'jwt-decode';
 
 interface NavOption {
   option: string;
@@ -24,6 +25,24 @@ function AdminDashboard() {
   const [currentStatusFilter, setCurrentStatusFilter] = useState<StatusType | 'all'>('all');
   const [currentPriorityFilter, setCurrentPriorityFilter] = useState<PriorityType | 'all'>('all');
   const [searchQuery, setSearchQuery] = useState<string>('');
+
+    const token = localStorage.getItem('token') || sessionStorage.getItem('token');
+    useEffect(() => {
+    if (token) {
+      try {
+        const decoded: { role?: string; [key: string]: any } = jwtDecode(token);
+        const userRole = decoded.role;
+        if (userRole !== "Admin") {
+          navigate("/SignIn");
+        }
+      } catch (e) {
+        console.error('Invalid token:', e);
+        navigate("/SignIn");
+      }
+    } else {
+      navigate("/SignIn");
+    }
+  }, [navigate, token]);
 
   const fetchTickets = useCallback(async () => {
     setLoading(true);
@@ -53,6 +72,7 @@ function AdminDashboard() {
       }
     }
   }, [statusParam]);
+
 
   const navOptions: NavOption[] = [
     {
