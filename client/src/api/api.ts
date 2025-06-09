@@ -9,12 +9,8 @@ export interface ApiErrorResponse {
 }
 
 export type TicketType =
-  | "Equipment maintenance request"
-  | "Supply replenishment"
-  | "Requesting missing patient records"
-  | "Compliance and safety"
-  | "Reports of patient accidents"
-  | "Account recovery"
+  | "IT System"
+  | "Management"
   | "Inquiries about dentalign"
   | "Technical issues of website"
   | "Billing/payment of appointments"

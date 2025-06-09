@@ -1,12 +1,8 @@
 import mongoose from 'mongoose'
 
 export type IssueType =
-  | "Equipment maintenance request"
-  | "Supply replenishment"
-  | "Requesting missing patient records"
-  | "Compliance and safety"
-  | "Reports of patient accidents"
-  | "Account recovery"
+  | "IT System"
+  | "Management"
   | "Inquiries about dentalign"
   | "Technical issues of website"
   | "Billing/payment of appointments"
@@ -53,12 +49,8 @@ const TicketSchema = new mongoose.Schema<ITicket>({
     type: {
         type: String,
         enum: [
-            "Equipment maintenance request",
-            "Supply replenishment",
-            "Requesting missing patient records",
-            "Compliance and safety",
-            "Reports of patient accidents",
-            "Account recovery",
+            "IT System",
+            "Management",
             "Inquiries about dentalign",
             "Technical issues of website",
             "Billing/payment of appointments",
